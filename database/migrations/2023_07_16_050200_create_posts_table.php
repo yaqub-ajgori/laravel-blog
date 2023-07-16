@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('thumbnail', 2048)->nullable();
             $table->longText('body');
             $table->boolean('active');
-            $table->dateTime('published_at');
+            $table->dateTime('published_at')->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
