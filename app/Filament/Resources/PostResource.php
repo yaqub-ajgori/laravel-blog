@@ -74,7 +74,9 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('title')
+                ->searchable()
+                ->sortable(),
                 Tables\Columns\ImageColumn::make('thumbnail'),
                 Tables\Columns\IconColumn::make('active')
                     ->boolean(),
