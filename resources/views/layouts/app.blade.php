@@ -39,7 +39,7 @@
 
             <div class="flex justify-between items-center">
               <a href="/">
-                <img class="w-32" alt="logo" src="/storage/logo.png" alt="">
+               <h2 class="font-semibold text-xl">Newsbdjob.com</h2>
             </a>
               <button class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden" id="navbar-toggle">
                 <i class="fas fa-bars"></i>
