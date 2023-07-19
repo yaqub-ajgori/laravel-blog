@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use App\Models\Category;
-use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Str;
+
 
 class Post extends Model
 {
@@ -20,7 +21,9 @@ class Post extends Model
         'body',
         'active',
         'published_at',
-        'user_id'
+        'user_id',
+        'meta_title',
+        'meta_description',
     ];
 
     public function user(): BelongsTo
@@ -45,6 +48,18 @@ class Post extends Model
 
     public function shortBody(): string
     {
-        return Str::words(strip_tags($this->body, 30));
+        return Str::words(strip_tags($this->body), 20);
     }
+
+    public function getThumbnail()
+    {
+        if(str_starts_with($this->thumbnail, 'http'))
+        {
+            return $this->thumbnail;
+        } else
+        {
+            return '/storage/'. $this->thumbnail;
+        }
+    }
+
 }

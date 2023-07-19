@@ -35,7 +35,7 @@ class PostResource extends Resource
             ->schema([
                 Card::make()
                     ->schema([
-                        Grid::make(2)
+                Grid::make(2)
                     ->schema([
                         Forms\Components\TextInput::make('title')
                         ->reactive()
@@ -48,9 +48,16 @@ class PostResource extends Resource
                         ->required()
                         ->maxLength(2048),
                     ]),
+                Grid::make(2)
+                    ->schema([
+                        Forms\Components\TextInput::make('meta_title')
+                        ->maxLength(255),
+                        Forms\Components\TextInput::make('meta_description')
+                        ->maxLength(255),
+                    ]),
                     Forms\Components\RichEditor::make('body')
                         ->required(),
-                    ])
+                ])
                 ->columnSpan(8),
                 Card::make()
                     ->schema([
